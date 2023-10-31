@@ -24,6 +24,12 @@ function App() {
     );
   }
 
+  function handleClearItemList() {
+    const isConfirm = window.confirm("Are you sure to clear all items ?");
+
+    isConfirm && setItems([]);
+  }
+
   return (
     <div className="app">
       <Logo />
@@ -31,9 +37,10 @@ function App() {
       <PackingList
         items={items}
         onDeleteItem={handleDeleteItem}
+        onClearItemList={handleClearItemList}
         onToggleItem={handleToggleItem}
       />
-      <Stats items={items}/>
+      <Stats items={items} />
     </div>
   );
 }
